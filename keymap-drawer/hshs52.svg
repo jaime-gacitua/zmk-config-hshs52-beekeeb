@@ -350,7 +350,7 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(688, 229)" class="key keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">⌘</text>
+<text x="0" y="0" class="key tap">Hyper</text>
 </g>
 <g transform="translate(760, 244) rotate(10.0)" class="key keypos-49">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

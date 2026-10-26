@@ -49,7 +49,7 @@ layers:
   - Symbols
   - Accent
   - SPACE
-  - ⌘
+  - Hyper
   - LEFT
   - DOWN
   - RIGHT
