@@ -28,11 +28,20 @@ flash() {
   f=$(find "$dir" -name "*_$1 *.uf2" -o -name "*_$1-*.uf2" | head -1)
   [ -n "$f" ] || { echo "No $1 firmware in build:"; find "$dir" -name '*.uf2'; exit 1; }
   echo "Plug in the $1 half and enter bootloader (double-tap reset, or &bootloader key)..."
-  until [ -d "$vol" ]; do sleep 1; done
-  # The drive ejects itself mid-copy when flashing finishes, so macOS may report an error here.
-  cp -X "$f" "$vol/" 2>/dev/null || true
-  while [ -d "$vol" ]; do sleep 1; done
-  echo "$1 flashed."
+  until [ -f "$vol/INFO_UF2.TXT" ]; do sleep 1; done
+  sleep 1 # a just-mounted drive can refuse writes for a moment
+  # Success = the board reboots and the drive disappears. cp itself may error
+  # when the drive ejects mid-copy, so its exit code is not trusted either way.
+  for _ in 1 2 3; do
+    cp -X "$f" "$vol/" 2>/dev/null
+    for _ in $(seq 10); do
+      [ -d "$vol" ] || { echo "$1 flashed."; return; }
+      sleep 1
+    done
+    echo "Drive still mounted, copying again..."
+  done
+  echo "Flash failed: $vol is still mounted. Try copying the file by hand: $f"
+  exit 1
 }
 
 case $side in
