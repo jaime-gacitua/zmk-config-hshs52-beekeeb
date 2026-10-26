@@ -6,7 +6,8 @@ set -euo pipefail
 
 side=${1:-left}
 vol=/Volumes/NICENANO
-sha=$(git rev-parse HEAD)
+# Skip the keymap-drawer render commits: the bot pushes them, so they get no build.
+sha=$(git log -1 --format=%H -- . ':!keymap-drawer')
 # Tell gh which repo to use (owner/name from origin), so no `gh repo set-default` is needed.
 GH_REPO=$(git remote get-url origin | sed -E 's#^.*github\.com[:/]##; s#\.git$##')
 export GH_REPO
