@@ -219,10 +219,10 @@ layers:
   - ⌃⌥
   - ⌘⌥
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - PG DN
-  - PG UP
-  - {t: ▽, type: trans}
+  - ⌥⇧LEFT
+  - ⌥⇧DOWN
+  - ⌥⇧UP
+  - ⌥⇧RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
@@ -245,8 +245,8 @@ layers:
   - F5
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - F6
-  - F7
+  - PG DN
+  - PG UP
   - F8
   - F9
   - F10
