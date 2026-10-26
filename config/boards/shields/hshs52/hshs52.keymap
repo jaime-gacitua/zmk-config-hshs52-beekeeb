@@ -16,8 +16,17 @@
 #define NAV_L    3
 #define SYM_L    4
 #define ADJ_L    5
+#define ACC_L    6
 
 #define HYPER LS(LC(LA(LGUI)))
+
+#define ACCENT(name, dead, key) \
+        name: name { \
+                compatible = "zmk,behavior-mod-morph"; \
+                #binding-cells = <0>; \
+                bindings = <&dead key>, <&dead LS(key)>; \
+                mods = <(MOD_LSFT|MOD_RSFT)>; \
+        };
 
 // Key positions (see hshs52.dtsi), split by hand for the home row mods.
 // Thumbs count for both hands, so mod+space and mod+layer still resolve hold.
@@ -66,6 +75,14 @@
 
                 // Hold z: ⌘ stays down while z is held and Tab is tapped once,
                 // so the app switcher stays open; release z to pick the app.
+                // Accent layer (hold the right thumb key next to space) + vowel/n.
+                ACCENT(acc_a, acute, A)
+                ACCENT(acc_e, acute, E)
+                ACCENT(acc_i, acute, I)
+                ACCENT(acc_o, acute, O)
+                ACCENT(acc_u, acute, U)
+                ACCENT(acc_n, tilde, N)
+
                 hkz: hold_cmd_tab {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
@@ -80,6 +97,18 @@
                         compatible = "zmk,behavior-macro-one-param";
                         #binding-cells = <1>;
                         bindings = <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+                };
+
+                acute: acute {
+                        compatible = "zmk,behavior-macro-one-param";
+                        #binding-cells = <1>;
+                        bindings = <&macro_tap &kp LA(E)>, <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
+                };
+
+                tilde: tilde {
+                        compatible = "zmk,behavior-macro-one-param";
+                        #binding-cells = <1>;
+                        bindings = <&macro_tap &kp LA(N)>, <&macro_param_1to1>, <&macro_tap &kp MACRO_PLACEHOLDER>;
                 };
 
                 cmd_tab: cmd_tab {
@@ -104,13 +133,13 @@
  * | `     |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
  * | TAB   | A/⇧   | S/⌃   | D/⌥   | F/⌘   | G/Hyp |-----------------------------------| H/Hyp | J/⌘   | K/⌥   | L/⌃   | ;/⇧   | ENTER |
  * | SHIFT | Z/⌘⇥  | X/⌘`  | C/⌘C  | V/⌘V  |   B   |   '   |-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
- * | Mute  |  ESC  | CTRL  |-------|  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  | SPACE |  ALT  |  GUI  |-------| Left  | Down  | Right |
+ * | Mute  |  ESC  | CTRL  |-------|  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  |Accent | SPACE |  GUI  |-------| Left  | Down  | Right |
  */
                         bindings = <
 &kp  GRAVE    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  TAB      &hml LSHFT A  &hml LCTRL S  &hml LALT D   &hml LGUI F   &hml HYPER G                                                                   &hmr HYPER H  &hmr RGUI J   &hmr RALT K   &hmr RCTRL L  &hmr RSHFT SEMI &kp  ENTER
 &kp  LSHFT    &hkz 0 Z      &hk LG(GRAVE) X &hk LG(C) C &hk LG(V) V   &kp  B        &kp  SQT                                           &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
-&kp  C_MUTE   &kp  ESC      &kp  LCTRL                  &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &kp  LALT     &kp  RGUI                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
+&kp  C_MUTE   &kp  ESC      &kp  LCTRL                  &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &mo  ACC_L    &kp  SPACE    &kp  RGUI                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -205,6 +234,20 @@
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+                };
+
+                accent_layer {
+/* ACCENT   (hold the thumb key left of space; add shift for capitals)
+ * |       |       |       |   é   |       |       |-----------------------------------|       |   ú   |   í   |   ó   |       |       |
+ * |       |   á   |       |       |       |       |-----------------------------------|       |       |       |       |       |       |
+ * |       |       |       |       |       |       |       |-------------------|       |   ñ   |       |       |       |       |       |
+ */
+                        bindings = <
+&trans        &trans        &trans        &acc_e        &trans        &trans                                                                         &trans        &acc_u        &acc_i        &acc_o        &trans        &trans
+&trans        &acc_a        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &acc_n        &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
+                        >;
                 };
 
                 extra1 {
