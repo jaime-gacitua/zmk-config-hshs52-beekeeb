@@ -13,11 +13,11 @@
 #define QWERTY_L 0
 #define DVORAK_L 1
 #define COLEMK_L 2
-#define NAV_L    3
-#define SYM_L    4
-#define ADJ_L    5
-#define ACC_L    6
-#define ALNUM_L  7
+#define ALNUM_L  3
+#define NAV_L    4
+#define SYM_L    5
+#define ADJ_L    6
+#define ACC_L    7
 
 #define HYPER LS(LC(LA(LGUI)))
 
@@ -186,6 +186,21 @@
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
                 };
 
+                alnum_layer {
+                        display-name = "AlNum";
+/* ALNUM   (toggle from Adjust: numbers on top, the qwerty top row below; shift works)
+ * Sits below Nav/Sym/Adjust so those still work, and Adjust can toggle it off.
+ * |       |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |       |
+ * |       |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |       |
+ */
+                        bindings = <
+&trans        &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                        &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &trans
+&trans        &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
+                        >;
+                };
+
                 nav_layer {
                         display-name = "Navi";
 /* NAV   (kanata's navi: callum mods on the left home row, vim arrows on the right)
@@ -255,20 +270,6 @@
 &trans        &trans        &trans        &acc_e        &trans        &trans                                                                         &trans        &acc_u        &acc_i        &acc_o        &trans        &trans
 &trans        &acc_a        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &acc_n        &trans        &trans        &trans        &trans        &trans
-&trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
-                        >;
-                };
-
-                alnum_layer {
-                        display-name = "AlNum";
-/* ALNUM   (toggle from Adjust: numbers on top, the qwerty top row below; shift works)
- * |       |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |       |
- * |       |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |       |
- */
-                        bindings = <
-&trans        &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                        &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &trans
-&trans        &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &trans
-&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans        &trans
 &trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
                         >;
                 };
