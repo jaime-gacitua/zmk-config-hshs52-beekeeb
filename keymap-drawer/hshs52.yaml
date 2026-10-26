@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: hshs52}
 layers:
   Base:
-  - '`'
+  - TAB
   - Q
   - W
   - E
@@ -13,7 +13,7 @@ layers:
   - O
   - P
   - BSPC
-  - TAB
+  - {t: ESC, h: Navi}
   - {t: A, h: ⇧}
   - {t: S, h: ⌃}
   - {t: D, h: ⌥}
@@ -225,7 +225,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - ⇧
   - ⌃
   - ⌥
@@ -257,7 +257,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - Adjust
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -289,7 +289,7 @@ layers:
   - '8'
   - '9'
   - '0'
-  - {t: ▽, type: trans}
+  - '`'
   - {t: ▽, type: trans}
   - \
   - '-'
@@ -331,7 +331,7 @@ layers:
   - EP OFF
   - EP ON
   - ''
-  - ''
+  - {type: held}
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
@@ -363,7 +363,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
