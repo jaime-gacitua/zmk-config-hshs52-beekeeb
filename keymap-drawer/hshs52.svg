@@ -825,6 +825,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(283, 46)" class="key keypos-4">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">AlNum</text>
+<text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(342, 54)" class="key keypos-5">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
