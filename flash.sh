@@ -13,7 +13,7 @@ export GH_REPO
 
 # The run can take a few seconds to appear after a push.
 for _ in $(seq 30); do
-  run=$(gh run list --commit "$sha" --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+  run=$(gh run list --commit "$sha" --workflow build.yml --limit 1 --json databaseId --jq '.[0].databaseId // empty')
   [ -n "$run" ] && break
   sleep 2
 done
