@@ -17,6 +17,7 @@
 #define SYM_L    4
 #define ADJ_L    5
 #define ACC_L    6
+#define ALNUM_L  7
 
 #define HYPER LS(LC(LA(LGUI)))
 
@@ -228,13 +229,13 @@
                         display-name = "Adjust";
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       | QWERTY| DVORAK| COLEMK|       |       |-----------------------------------|       |Prt Scr|       | EP_OFF| EP_ON |       |
+ * |       | QWERTY| DVORAK| COLEMK| AlNum |       |-----------------------------------|       |Prt Scr|       | EP_OFF| EP_ON |       |
  * |       | BT 0  | BT 1  | BT 2  | BT 3  | BT 4  |-----------------------------------|       |       |       |       |       |       |
  * | BOOTL | RESET | STUDIO|OUT_USB|OUT_BLE|       |BT CLR |-------------------|       |       |       |       |       |       | SHIFT |
  * ----------------|       |-------|       |       |       |       |---|       |       |       |       |-------| CTRL  |----------------
  */
                         bindings = <
-&none         &to  QWERTY_L &to  DVORAK_L &to  COLEMK_L &none         &none                                                                             &none             &kp PRINTSCREEN    &none         &ext_power EP_OFF  &ext_power EP_ON &none
+&none         &to  QWERTY_L &to  DVORAK_L &to  COLEMK_L &tog ALNUM_L        &none                                                                             &none             &kp PRINTSCREEN    &none         &ext_power EP_OFF  &ext_power EP_ON &none
 &none         &bt  BT_SEL 0 &bt  BT_SEL 1 &bt  BT_SEL 2 &bt  BT_SEL 3 &bt  BT_SEL 4                                                                     &none             &none              &none            &none           &none            &none
 &bootloader   &sys_reset        &studio_unlock 	&out OUT_USB  &out OUT_BLE  &none         &bt BT_CLR                                         &none            &none             &none              &none            &none           &none            &trans
 &none         &none         &trans                      &trans        &trans        &trans        &trans                 &trans        &trans           &trans            &trans                              &kp  RCTRL      &none            &none
@@ -254,6 +255,20 @@
 &trans        &trans        &trans        &acc_e        &trans        &trans                                                                         &trans        &acc_u        &acc_i        &acc_o        &trans        &trans
 &trans        &acc_a        &trans        &trans        &trans        &trans                                                                         &trans        &trans        &trans        &trans        &trans        &trans
 &trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &acc_n        &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
+                        >;
+                };
+
+                alnum_layer {
+                        display-name = "AlNum";
+/* ALNUM   (toggle from Adjust: numbers on top, the qwerty top row below; shift works)
+ * |       |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |       |
+ * |       |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   |       |
+ */
+                        bindings = <
+&trans        &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                        &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &trans
+&trans        &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans        &trans
 &trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
                         >;
                 };
