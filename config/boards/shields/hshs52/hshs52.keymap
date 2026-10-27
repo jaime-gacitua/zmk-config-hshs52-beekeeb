@@ -236,18 +236,19 @@
 
                 sym_layer {
                         display-name = "Symbols";
-/* SYM   (linkarzu's Symb layer; \ | on the inner keys since he has no room for them here)
+/* SYM   (linkarzu's Symb layer; \ | on the inner keys since he has no room for them here.
+ *         Media, brightness, zoom and lock screen along the bottom, from his Systm layer)
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |   _   |   !   |   @   |   #   |   $   |   %   |-----------------------------------|   ^   |   &   |   *   |   (   |   )   |   -   |
  * |   ~   |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |   `   |
- * |   +   |   <   |   >   |   ?   |   [   |   ]   |   \   |-------------------|   |   |   {   |   }   |   ,   |   .   |   /   |   =   |
- * | Vol-  | Vol+  | Play  |-------|       |       |       |  ADJ_L |---|      |       |       |       |-------| CTRL  | CAPS  |SkAltGr|
+ * |   +   |   <   |   >   |   ?   |   [   |   ]   |   \   |-------------------|   |   |   {   |   }   | Bri-  | Bri+  |   /   |   =   |
+ * | Vol-  | Vol+  | Prev  |-------| Play  | Next  | CAPS  |  ADJ_L |---|      |       |       |       |-------|Zoom - |Zoom + | Lock  |
  */
                         bindings = <
 &kp  UNDER    &kp  EXCL     &kp  AT       &kp  HASH     &kp  DOLLAR   &kp  PERCENT                                                                   &kp  CARET    &kp  AMPS     &kp  ASTRK    &kp  LPAR     &kp  RPAR     &kp  MINUS
 &kp  TILDE    &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                        &kp  N6       &kp  N7       &kp  N8       &kp  N9       &kp  N0       &kp  GRAVE
-&kp  PLUS     &kp  LT       &kp  GT       &kp  QMARK    &kp  LBKT     &kp  RBKT     &kp  BSLH                                          &kp  PIPE     &kp  LBRC     &kp  RBRC     &kp  COMMA    &kp  DOT      &kp  FSLH     &kp  EQUAL
-&kp C_VOL_DN  &kp C_VOL_UP  &kp  C_PP                    &trans        &trans        &trans        &mo  ADJ_L               &trans      &trans        &trans        &trans                      &kp  RCTRL    &caps_word    &sk  RALT
+&kp  PLUS     &kp  LT       &kp  GT       &kp  QMARK    &kp  LBKT     &kp  RBKT     &kp  BSLH                                          &kp  PIPE     &kp  LBRC     &kp  RBRC     &kp  C_BRI_DN &kp  C_BRI_UP &kp  FSLH     &kp  EQUAL
+&kp C_VOL_DN  &kp C_VOL_UP  &kp  C_PREV                  &kp  C_PP     &kp  C_NEXT   &caps_word    &mo  ADJ_L               &trans      &trans        &trans        &trans                      &kp  LG(MINUS) &kp LG(EQUAL) &kp LC(LG(Q))
                         >;
 
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
