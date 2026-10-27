@@ -224,7 +224,7 @@ layers:
   - ⌥⇧UP
   - ⌥⇧RIGHT
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - DEL
   - {type: held}
   - ⇧
   - ⌃
@@ -266,7 +266,7 @@ layers:
   - HOME
   - END
   Symbols:
-  - INS
+  - _
   - '!'
   - '@'
   - '#'
@@ -277,7 +277,7 @@ layers:
   - '*'
   - (
   - )
-  - DEL
+  - '-'
   - '&caps_word'
   - '1'
   - '2'
