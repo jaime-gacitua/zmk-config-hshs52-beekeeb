@@ -24,14 +24,14 @@ layers:
   - {t: K, h: ⌥}
   - {t: L, h: ⌃}
   - {t: ;, h: ⇧}
-  - ENTER
+  - ''''
   - ⇧
   - {t: Z, h: ⌘Tab}
   - {t: X, h: ⌘`}
   - {t: C, h: ⌘C}
   - {t: V, h: ⌘V}
   - B
-  - ''''
+  - ENTER
   - /
   - N
   - M
@@ -46,7 +46,7 @@ layers:
   - ⌥
   - {t: ⇧, h: sticky}
   - Navi
-  - Symbols
+  - {t: ENTER, h: Symbols}
   - Accent
   - SPACE
   - Hyper
