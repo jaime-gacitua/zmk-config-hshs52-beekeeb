@@ -16,5 +16,5 @@ jobs:
       contents: write
     with:
       keymap_patterns: "config/boards/shields/hshs52/hshs52.keymap"
-      draw_args: "hshs52:'-d config/boards/shields/hshs52/hshs52.dtsi -s Base Navi Symbols Accent Adjust'"
+      draw_args: "hshs52:'-d config/boards/shields/hshs52/hshs52.dtsi -s Base Navi Symbols Numpad Accent Adjust'"
       commit_message: "keymap-drawer render"
