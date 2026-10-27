@@ -146,13 +146,13 @@
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | TAB   |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
  * |ESC/Nav| A/⇧   | S/⌃   | D/⌥   | F/⌘   | G/Hyp |-----------------------------------| H/Hyp | J/⌘   | K/⌥   | L/⌃   | ;/⇧   |   '   |
- * | SHIFT | Z/⌘⇥  | X/⌘`  | C/⌘C  | V/⌘V  |   B   | ENTER |-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
+ * | SHIFT | Z/⌘⇥  | X/⌘`  | C/⌘C  | V/⌘V  |   B   |  ` ~  |-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
  * | Mute  |  ESC  | CTRL  |-------|  GUI  |  ALT  |SK SHFT|  Nav  |---|Ent/Sym|Accent | SPACE | Hyper |-------| Left  | Down  | Right |
  */
                         bindings = <
 &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &lt NAV_L ESC &hml LSHFT A  &hml LCTRL S  &hml LALT D   &hml LGUI F   &hml HYPER G                                                                   &hmr HYPER H  &hmr RGUI J   &hmr RALT K   &hmr RCTRL L  &hmr RSHFT SEMI &kp  SQT
-&kp  LSHFT    &hkz 0 Z      &hk LG(GRAVE) X &hk LG(C) C &hk LG(V) V   &kp  B        &kp  ENTER                                         &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
+&kp  LSHFT    &hkz 0 Z      &hk LG(GRAVE) X &hk LG(C) C &hk LG(V) V   &kp  B        &kp  GRAVE                                         &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
 &kp  C_MUTE   &kp  ESC      &kp  LCTRL                  &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &lt_sym SYM_L ENTER &mo  ACC_L    &kp  SPACE    &kp  HYPER                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
                         >;
 
