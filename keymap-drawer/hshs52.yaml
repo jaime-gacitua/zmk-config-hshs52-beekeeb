@@ -300,24 +300,24 @@ layers:
   - '|'
   - '{'
   - '}'
-  - ','
-  - .
+  - BRI DN
+  - BRI UP
   - /
   - '='
   - VOL DN
   - VOL UP
+  - PREV
   - PP
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - NEXT
+  - '&caps_word'
   - Adjust
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ⌃
-  - '&caps_word'
-  - {t: RALT, h: sticky}
+  - ⌘-
+  - ⌘=
+  - ⌃⌘Q
   Adjust:
   - ''
   - {t: Base, h: toggle}
