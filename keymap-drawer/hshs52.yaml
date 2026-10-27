@@ -45,7 +45,7 @@ layers:
   - ⌘
   - ⌥
   - {t: ⇧, h: sticky}
-  - Navi
+  - {t: ENTER, h: Navi}
   - {t: ENTER, h: Symbols}
   - Accent
   - SPACE
