@@ -290,23 +290,23 @@ layers:
   - '9'
   - '0'
   - '`'
-  - '&caps_word'
-  - \
-  - '-'
-  - '='
+  - +
+  - <
+  - '>'
+  - '?'
   - '['
   - ']'
-  - PP
-  - MUTE
+  - \
   - '|'
-  - _
-  - +
   - '{'
   - '}'
-  - {t: ▽, type: trans}
+  - ','
+  - .
+  - /
+  - '='
   - VOL DN
   - VOL UP
-  - {t: ▽, type: trans}
+  - PP
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -316,7 +316,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ⌃
-  - APP
+  - '&caps_word'
   - {t: RALT, h: sticky}
   Adjust:
   - ''
