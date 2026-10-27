@@ -215,10 +215,10 @@ layers:
   Navi:
   - {t: ▽, type: trans}
   - ⇧⌘4
-  - ⇧⌃
-  - ⌃⌥
-  - ⌘⌥
-  - {t: ▽, type: trans}
+  - ⌘⇧[
+  - ⌘[
+  - ⌘]
+  - ⌘⇧]
   - ⌥⇧LEFT
   - ⌥⇧DOWN
   - ⌥⇧UP
