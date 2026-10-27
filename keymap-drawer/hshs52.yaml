@@ -31,7 +31,7 @@ layers:
   - {t: C, h: ⌘C}
   - {t: V, h: ⌘V}
   - B
-  - ENTER
+  - '`'
   - /
   - N
   - M
