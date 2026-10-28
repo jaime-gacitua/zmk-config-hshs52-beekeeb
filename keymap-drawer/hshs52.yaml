@@ -39,9 +39,9 @@ layers:
   - .
   - UP
   - ⇧
-  - MUTE
-  - {t: ESC, h: System}
-  - ⌃
+  - VOL DN
+  - {t: PP, h: System}
+  - VOL UP
   - ⌘
   - Numpad
   - {t: ⇧, h: sticky}
