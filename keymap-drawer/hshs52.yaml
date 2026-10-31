@@ -42,7 +42,7 @@ layers:
   - VOL DN
   - {t: PP, h: System}
   - VOL UP
-  - '&key_repeat'
+  - ⌘
   - Numpad
   - {t: ⇧, h: sticky}
   - {t: BSPC, h: Navi}
