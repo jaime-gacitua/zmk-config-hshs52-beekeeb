@@ -42,10 +42,10 @@ layers:
   - VOL DN
   - {t: PP, h: System}
   - VOL UP
-  - ⌘
+  - '&key_repeat'
   - Numpad
   - {t: ⇧, h: sticky}
-  - {t: ENTER, h: Navi}
+  - {t: BSPC, h: Navi}
   - {t: ENTER, h: Symbols}
   - Accent
   - SPACE
