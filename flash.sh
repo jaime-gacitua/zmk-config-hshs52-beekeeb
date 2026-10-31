@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Wait for the GitHub build of the current commit, download it, and flash it.
-# Usage: ./flash.sh [left|right|both]
+# Usage: ./flash.sh [left|right|both|log]   (log = left half with USB key logging, see keylog.sh)
 # Default is left: keymap changes (layers, hold-taps, combos) live on the left/central half.
 set -euo pipefail
 
@@ -48,5 +48,6 @@ flash() {
 case $side in
   left|right) flash "$side" ;;
   both) flash left; flash right ;;
-  *) echo "Usage: $0 [left|right|both]"; exit 1 ;;
+  log) flash log ;;
+  *) echo "Usage: $0 [left|right|both|log]"; exit 1 ;;
 esac
