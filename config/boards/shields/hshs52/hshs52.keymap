@@ -216,20 +216,20 @@
 
                 nav_layer {
                         display-name = "Navi";
-/* NAV   (kanata's navi: callum mods on the left home row, vim arrows on the right, ⌥⇧ arrows above them to select
- *         by word/paragraph like linkarzu; Q = CleanShot area capture ⌘⇧4;
- *         W E R T = previous tab, back, forward, next tab)
+/* NAV   (kanata's navi: callum mods on the left home row, vim arrows on the right; below them ⌘← ⌥← ⌥→ ⌘→ jump to
+ *         line start / word back / word forward / line end, and the same keys above them add ⇧ to select;
+ *         Q = CleanShot area capture ⌘⇧4; W E R T = previous tab, back, forward, next tab; Z X C V B = undo cut copy paste redo)
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       | Shot  | Tab ← | Back  |  Fwd  | Tab → |-----------------------------------|  ⌥⇧←  |  ⌥⇧↓  |  ⌥⇧↑  |  ⌥⇧→  |       |  DEL  |
+ * |       | Shot  | Tab ← | Back  |  Fwd  | Tab → |-----------------------------------|  ⌘⇧←  |  ⌥⇧←  |  ⌥⇧→  |  ⌘⇧→  |       |  DEL  |
  * |       |   ⇧   |   ⌃   |   ⌥   |   ⌘   | Hyper |-----------------------------------| Left  | Down  |  Up   | Right |       |       |
- * |       |  F1   |  F2   |  F3   |  F4   |  F5   |       |-------------------|       | PG DN | PG UP |  F8   |  F9   |  F10  |       |
- * | F11   |  F12  |       |-------|       |       |       |       |---| ADJ_L |       |       |       |-------| CTRL  | HOME  |  END  |
+ * |       | Undo  |  Cut  | Copy  | Paste | Redo  |       |-------------------|       |  ⌘←   |  ⌥←   |  ⌥→   |  ⌘→   | PG UP |       |
+ * |       |       |       |-------|       |       |       |       |---| ADJ_L |       |       |       |-------| CTRL  | PG DN |       |
  */
                         bindings = <
-&trans        &kp LS(LG(N4)) &kp LG(LS(LBKT)) &kp LG(LBKT) &kp LG(RBKT)  &kp LG(LS(RBKT))                                                                        &kp LA(LS(LEFT)) &kp LA(LS(DOWN)) &kp LA(LS(UP)) &kp LA(LS(RIGHT)) &trans &kp  DEL
+&trans        &kp LS(LG(N4)) &kp LG(LS(LBKT)) &kp LG(LBKT) &kp LG(RBKT)  &kp LG(LS(RBKT))                                                                        &kp LG(LS(LEFT)) &kp LA(LS(LEFT)) &kp LA(LS(RIGHT)) &kp LG(LS(RIGHT)) &trans &kp  DEL
 &trans        &kp  LSHFT    &kp  LCTRL    &kp  LALT     &kp  LGUI     &kp  HYPER                                                                     &kp  LEFT     &kp  DOWN     &kp  UP       &kp  RIGHT    &trans        &trans
-&trans        &kp  F1       &kp  F2       &kp  F3       &kp  F4       &kp  F5       &trans                                             &trans        &kp  PG_DN    &kp  PG_UP    &kp  F8       &kp  F9       &kp  F10      &trans
-&kp  F11      &kp  F12      &trans                      &trans        &trans        &trans        &trans                 &mo ADJ_L     &trans        &trans        &trans                     &kp  RCTRL    &kp  HOME     &kp  END
+&trans        &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)     &kp LG(LS(Z)) &trans                                             &trans        &kp LG(LEFT)  &kp LA(LEFT)  &kp LA(RIGHT) &kp LG(RIGHT) &kp  PG_UP    &trans
+&trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &mo ADJ_L     &trans        &trans        &trans                     &kp  RCTRL    &kp  PG_DN    &trans
                         >;
 
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
