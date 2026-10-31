@@ -87,8 +87,8 @@
                 ACCENT(acc_u, acute, U)
                 ACCENT(acc_n, tilde, N)
 
-                // Nav and Sym thumbs: tap Enter, hold the layer. Balanced so a quick
-                // hold+key rolls into the layer; quick-tap lets a double tap hold Enter for repeat.
+                // Nav and Sym thumbs: tap Backspace / Enter, hold the layer. Balanced so a quick
+                // hold+key rolls into the layer; quick-tap lets a double tap hold the key for repeat.
                 lt_th: thumb_layer_tap {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
@@ -149,13 +149,13 @@
  * | TAB   |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
  * |ESC/Nav| A/⇧   | S/⌃   | D/⌥   | F/⌘   | G/Hyp |-----------------------------------| H/Hyp | J/⌘   | K/⌥   | L/⌃   | ;/⇧   |   '   |
  * | SHIFT | Z/⌘⇥  | X/⌘`  | C/⌘C  | V/⌘V  |   B   |  ` ~  |-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
- * | Vol-  |⏯/Sys  | Vol+  |-------|  GUI  |  Num  |SK SHFT|Ent/Nav|---|Ent/Sym|Accent | SPACE | Hyper |-------| Left  | Down  | Right |
+ * | Vol-  |⏯/Sys  | Vol+  |-------|  GUI  |  Num  |SK SHFT| ⌫/Nav |---|Ent/Sym|Accent | SPACE | Hyper |-------| Left  | Down  | Right |
  */
                         bindings = <
 &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &lt NAV_L ESC &hml LSHFT A  &hml LCTRL S  &hml LALT D   &hml LGUI F   &hml HYPER G                                                                   &hmr HYPER H  &hmr RGUI J   &hmr RALT K   &hmr RCTRL L  &hmr RSHFT SEMI &kp  SQT
 &kp  LSHFT    &hkz 0 Z      &hk LG(GRAVE) X &hk LG(C) C &hk LG(V) V   &kp  B        &kp  GRAVE                                         &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
-&kp  C_VOL_DN &lt SYS_L C_PP &kp C_VOL_UP              &kp  LGUI     &mo  NUM_L    &sk  LSHIFT    &lt_th NAV_L ENTER    &lt_th SYM_L ENTER &mo  ACC_L    &kp  SPACE    &kp  HYPER                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
+&kp  C_VOL_DN &lt SYS_L C_PP &kp C_VOL_UP              &kp  LGUI     &mo  NUM_L    &sk  LSHIFT    &lt_th NAV_L BSPC     &lt_th SYM_L ENTER &mo  ACC_L    &kp  SPACE    &kp  HYPER                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
