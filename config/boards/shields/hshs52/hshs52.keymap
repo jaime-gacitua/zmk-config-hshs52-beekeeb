@@ -218,15 +218,15 @@
                         display-name = "Navi";
 /* NAV   (kanata's navi: callum mods on the left home row, vim arrows on the right; below them ⌘← ⌥← ⌥→ ⌘→ jump to
  *         line start / word back / word forward / line end, and the same keys above them add ⇧ to select;
- *         Q = CleanShot area capture ⌘⇧4; P = Slack (Hyper L, AeroSpace); W E R T = previous tab, back, forward, next tab; Z X C V B = undo cut copy paste redo)
+ *         Q = CleanShot area capture ⌘⇧4; W E R T = previous tab, back, forward, next tab; Z X C V B = undo cut copy paste redo)
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       | Shot  | Tab ← | Back  |  Fwd  | Tab → |-----------------------------------|  ⌘⇧←  |  ⌥⇧←  |  ⌥⇧→  |  ⌘⇧→  | Slack |  DEL  |
+ * |       | Shot  | Tab ← | Back  |  Fwd  | Tab → |-----------------------------------|  ⌘⇧←  |  ⌥⇧←  |  ⌥⇧→  |  ⌘⇧→  |       |  DEL  |
  * |       |   ⇧   |   ⌃   |   ⌥   |   ⌘   | Hyper |-----------------------------------| Left  | Down  |  Up   | Right |       |       |
  * |       | Undo  |  Cut  | Copy  | Paste | Redo  |       |-------------------|       |  ⌘←   |  ⌥←   |  ⌥→   |  ⌘→   | PG UP |       |
  * |       |       |       |-------|       |       |       |       |---| ADJ_L |       |       |       |-------| CTRL  | PG DN |       |
  */
                         bindings = <
-&trans        &kp LS(LG(N4)) &kp LG(LS(LBKT)) &kp LG(LBKT) &kp LG(RBKT)  &kp LG(LS(RBKT))                                                                        &kp LG(LS(LEFT)) &kp LA(LS(LEFT)) &kp LA(LS(RIGHT)) &kp LG(LS(RIGHT)) &kp LS(LC(LA(LG(L)))) &kp  DEL
+&trans        &kp LS(LG(N4)) &kp LG(LS(LBKT)) &kp LG(LBKT) &kp LG(RBKT)  &kp LG(LS(RBKT))                                                                        &kp LG(LS(LEFT)) &kp LA(LS(LEFT)) &kp LA(LS(RIGHT)) &kp LG(LS(RIGHT)) &trans &kp  DEL
 &trans        &kp  LSHFT    &kp  LCTRL    &kp  LALT     &kp  LGUI     &kp  HYPER                                                                     &kp  LEFT     &kp  DOWN     &kp  UP       &kp  RIGHT    &trans        &trans
 &trans        &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)     &kp LG(LS(Z)) &trans                                             &trans        &kp LG(LEFT)  &kp LA(LEFT)  &kp LA(RIGHT) &kp LG(RIGHT) &kp  PG_UP    &trans
 &trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &mo ADJ_L     &trans        &trans        &trans                     &kp  RCTRL    &kp  PG_DN    &trans
