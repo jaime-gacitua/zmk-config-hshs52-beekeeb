@@ -9,6 +9,11 @@ on:
       - "keymap_drawer.config.yaml"
       - ".github/workflows/draw.yml"
 
+# A newer push makes the older render stale (and its push would be rejected), so cancel it.
+concurrency:
+  group: draw
+  cancel-in-progress: true
+
 jobs:
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
