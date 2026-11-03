@@ -10,6 +10,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
+// Mouse keys speed (ZMK defaults: move 600, scroll 10). Tune here if the cursor feels slow or scroll too fast.
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10
+#include <dt-bindings/zmk/pointing.h>
+
 #define QWERTY_L 0
 #define DVORAK_L 1
 #define COLEMK_L 2
@@ -20,6 +25,7 @@
 #define ACC_L    7
 #define NUM_L    8
 #define SYS_L    9
+#define MOUSE_L  10
 
 #define HYPER LS(LC(LA(LGUI)))
 
@@ -39,6 +45,19 @@
 
 
 / {
+        combos {
+                compatible = "zmk,combos";
+
+                // Left SK SHFT + ⌫/Nav thumbs held together (one thumb on both) = Mouse layer.
+                // Prior idle so a fast shift-then-backspace while typing stays two keys.
+                mouse {
+                        timeout-ms = <50>;
+                        require-prior-idle-ms = <150>;
+                        key-positions = <43 44>;
+                        bindings = <&mo MOUSE_L>;
+                };
+        };
+
         behaviors {
                 // urob's timeless home row mods, same numbers as the kanata
                 // config (nix-config modules/common/kanata.nix, "intento 4"):
@@ -320,6 +339,24 @@
 &trans        &trans        &trans        &trans        &trans        &trans                                                                         &kp  C_PREV   &kp  C_VOL_DN &kp  C_VOL_UP &kp  C_NEXT   &kp  C_PP     &kp  C_MUTE
 &trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &kp LG(MINUS) &kp LG(EQUAL) &trans        &trans        &trans
 &trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &trans        &trans        &trans                      &trans        &trans        &trans
+                        >;
+                };
+
+                mouse_layer {
+                        display-name = "Mouse";
+/* MOUSE   (hold the left SK SHFT + ⌫/Nav thumbs together: cursor on the Nav arrows, scroll above them,
+ *          clicks on the right thumbs, callum mods on the left for ⌘click / ⇧click)
+ * -------------------------------------------------------------------------------------------------------------------------------------
+ * |       |       |       |       |       |       |-----------------------------------| Scr ← | Scr ↓ | Scr ↑ | Scr → |       |       |
+ * |       |   ⇧   |   ⌃   |   ⌥   |   ⌘   |       |-----------------------------------|   ←   |   ↓   |   ↑   |   →   |       |       |
+ * |       |       |       |       |       |       |       |-------------------|       |       |       |       |       |       |       |
+ * |       |       |       |-------|       |       |       |       |---|       |R click|L click|M click|-------|       |       |       |
+ */
+                        bindings = <
+&trans        &trans        &trans        &trans        &trans        &trans                                                                         &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT &trans      &trans
+&trans        &kp  LSHFT    &kp  LCTRL    &kp  LALT     &kp  LGUI     &trans                                                                         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans      &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans                                             &trans        &trans        &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans                      &trans        &trans        &trans        &trans                 &trans        &mkp RCLK     &mkp LCLK     &mkp MCLK                   &trans        &trans        &trans
                         >;
                 };
 
