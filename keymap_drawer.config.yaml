@@ -51,5 +51,17 @@ parse_config:
     "&acc_o": "ó"
     "&acc_u": "ú"
     "&acc_n": "ñ"
+    # mouse layer
+    "&msc SCRL_LEFT": "Scroll ←"
+    "&msc SCRL_DOWN": "Scroll ↓"
+    "&msc SCRL_UP": "Scroll ↑"
+    "&msc SCRL_RIGHT": "Scroll →"
+    "&mmv MOVE_LEFT": "Mouse ←"
+    "&mmv MOVE_DOWN": "Mouse ↓"
+    "&mmv MOVE_UP": "Mouse ↑"
+    "&mmv MOVE_RIGHT": "Mouse →"
+    "&mkp LCLK": "L click"
+    "&mkp RCLK": "R click"
+    "&mkp MCLK": "M click"
 draw_config:
   dark_mode: auto
