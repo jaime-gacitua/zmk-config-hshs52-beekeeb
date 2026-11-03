@@ -43,7 +43,7 @@ layers:
   - {t: PP, h: System}
   - VOL UP
   - '&key_repeat'
-  - Mouse
+  - {t: ESC, h: Mouse}
   - {t: ⇧, h: sticky}
   - {t: BSPC, h: Navi}
   - {t: ENTER, h: Symbols}
