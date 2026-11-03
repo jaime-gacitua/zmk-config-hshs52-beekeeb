@@ -45,19 +45,6 @@
 
 
 / {
-        combos {
-                compatible = "zmk,combos";
-
-                // Left SK SHFT + ⌫/Nav thumbs held together (one thumb on both) = Mouse layer.
-                // Prior idle so a fast shift-then-backspace while typing stays two keys.
-                mouse {
-                        timeout-ms = <50>;
-                        require-prior-idle-ms = <150>;
-                        key-positions = <43 44>;
-                        bindings = <&mo MOUSE_L>;
-                };
-        };
-
         behaviors {
                 // urob's timeless home row mods, same numbers as the kanata
                 // config (nix-config modules/common/kanata.nix, "intento 4"):
@@ -167,14 +154,14 @@
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | TAB   |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
  * |ESC/Nav| A/⇧   | S/⌃   | D/⌥   | F/⌘   | G/Hyp |-----------------------------------| H/Hyp | J/⌘   | K/⌥   | L/⌃   | ;/⇧   |   '   |
- * | SHIFT | Z/⌘⇥  | X/⌘`  | C/⌘C  | V/⌘V  |   B   |  ` ~  |-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
- * | Vol-  |⏯/Sys  | Vol+  |-------|  Rep  |  Num  |SK SHFT| ⌫/Nav |---|Ent/Sym|Accent | SPACE | Hyper |-------| Left  | Down  | Right |
+ * | SHIFT | Z/⌘⇥  | X/⌘`  | C/⌘C  | V/⌘V  |   B   |` ~/Num|-------------------|   /   |   N   |   M   |   ,   |   .   |  Up   | SHIFT |
+ * | Vol-  |⏯/Sys  | Vol+  |-------|  Rep  | Mouse |SK SHFT| ⌫/Nav |---|Ent/Sym|Accent | SPACE | Hyper |-------| Left  | Down  | Right |
  */
                         bindings = <
 &kp  TAB      &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &lt NAV_L ESC &hml LSHFT A  &hml LCTRL S  &hml LALT D   &hml LGUI F   &hml HYPER G                                                                   &hmr HYPER H  &hmr RGUI J   &hmr RALT K   &hmr RCTRL L  &hmr RSHFT SEMI &kp  SQT
-&kp  LSHFT    &hkz 0 Z      &hk LG(GRAVE) X &hk LG(C) C &hk LG(V) V   &kp  B        &kp  GRAVE                                         &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
-&kp  C_VOL_DN &lt SYS_L C_PP &kp C_VOL_UP              &key_repeat   &mo  NUM_L    &sk  LSHIFT    &lt_th NAV_L BSPC     &lt_th SYM_L ENTER &mo  ACC_L    &kp  SPACE    &kp  HYPER                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
+&kp  LSHFT    &hkz 0 Z      &hk LG(GRAVE) X &hk LG(C) C &hk LG(V) V   &kp  B        &lt NUM_L GRAVE                                    &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
+&kp  C_VOL_DN &lt SYS_L C_PP &kp C_VOL_UP              &key_repeat   &mo  MOUSE_L  &sk  LSHIFT    &lt_th NAV_L BSPC     &lt_th SYM_L ENTER &mo  ACC_L    &kp  SPACE    &kp  HYPER                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -310,7 +297,7 @@
 
                 num_layer {
                         display-name = "Numpad";
-/* NUMPAD   (hold the left Option thumb: numpad on the right hand, callum mods on the left; , and . both for decimals)
+/* NUMPAD   (hold the ` key right of B: numpad on the right hand, callum mods on the left; , and . both for decimals)
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------|   /   |   7   |   8   |   9   |   -   |       |
  * |       |   ⇧   |   ⌃   |   ⌥   |   ⌘   | Hyper |-----------------------------------|   *   |   4   |   5   |   6   |   +   |   =   |
@@ -344,7 +331,7 @@
 
                 mouse_layer {
                         display-name = "Mouse";
-/* MOUSE   (hold the left SK SHFT + ⌫/Nav thumbs together: cursor on the Nav arrows, scroll above them,
+/* MOUSE   (hold the left thumb key left of SK SHFT: cursor on the Nav arrows, scroll above them,
  *          clicks on the right thumbs, callum mods on the left for ⌘click / ⇧click)
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |       |       |       |       |       |       |-----------------------------------| Scr ← | Scr ↓ | Scr ↑ | Scr → |       |       |
