@@ -31,7 +31,7 @@ layers:
   - {t: C, h: ⌘C}
   - {t: V, h: ⌘V}
   - B
-  - '`'
+  - {t: '`', h: Numpad}
   - /
   - N
   - M
@@ -43,7 +43,7 @@ layers:
   - {t: PP, h: System}
   - VOL UP
   - '&key_repeat'
-  - Numpad
+  - Mouse
   - {t: ⇧, h: sticky}
   - {t: BSPC, h: Navi}
   - {t: ENTER, h: Symbols}
@@ -455,7 +455,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - ','
   - '0'
   - '1'
@@ -467,7 +467,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -573,9 +573,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
-  - {type: held}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - R click
   - L click
@@ -583,6 +583,3 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-combos:
-- p: [43, 44]
-  k: Mouse
