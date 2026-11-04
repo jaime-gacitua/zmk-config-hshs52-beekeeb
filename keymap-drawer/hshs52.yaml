@@ -40,8 +40,8 @@ layers:
   - UP
   - ⇧
   - VOL DN
-  - {t: PP, h: System}
   - VOL UP
+  - {t: PP, h: System}
   - '&key_repeat'
   - {t: ESC, h: Mouse}
   - {t: ⇧, h: sticky}
@@ -517,8 +517,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
